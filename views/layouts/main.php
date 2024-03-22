@@ -8,28 +8,32 @@
    <title>Pop it MVC</title>
 </head>
 
-<body>
-   <header>
-      <nav>
-         <a href="<?= app()->route->getUrl('/hello') ?>">Главная</a>
-         <?php
-         if (!app()->auth::check()) :
-         ?>
-            <a href="<?= app()->route->getUrl('/login') ?>">Вход</a>
-            <a href="<?= app()->route->getUrl('/signup') ?>">Регистрация</a>
-         <?php
-         else :
-         ?>
-            <a href="<?= app()->route->getUrl('/logout') ?>">Выход (<?= app()->auth::user()->name ?>)</a>
-         <?php
-         endif;
-         ?>
-      </nav>
-   </header>
-   <main>
-      <?= $content ?? '' ?>
-   </main>
+<body style=" background-color: greey; margin: 0">
 
-</body>
+   <body>
+      <header>
+         <nav>
+            <a href="<?= app()->route->getUrl('/job_tabel') ?>">Админ</a>
+            <a href="<?= app()->route->getUrl('/employee_tabel') ?>">Сотрудник</a>
+            <a href="<?= app()->route->getUrl('/hello') ?>">Главная</a>
+            <?php
+            if (!app()->auth::check()) :
+            ?>
+               <a href="<?= app()->route->getUrl('/login') ?>">Вход</a>
+               <a href="<?= app()->route->getUrl('/signup') ?>">Регистрация</a>
+            <?php
+            else :
+            ?>
+               <a href="<?= app()->route->getUrl('/logout') ?>">Выход (<?= app()->auth::user()->name ?>)</a>
+            <?php
+            endif;
+            ?>
+         </nav>
+      </header>
+      <main>
+         <?= $content ?? '' ?>
+      </main>
+
+   </body>
 
 </html>
